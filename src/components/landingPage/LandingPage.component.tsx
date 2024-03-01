@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { Character, fetchCharacters } from "../../services/characters/characters.services"
+import { Character } from "../../models/character.mode"
+import { fetchCharacters } from "../../services/characters/characters.services"
 import "./LandingPage.styles.scss"
 
 export const LandingPage = () => {
@@ -11,8 +12,8 @@ export const LandingPage = () => {
 
   useEffect(() => {
     getAllCharacters()
-    console.log(characters)
+    characters.length && console.log(characters)
   }, [])
 
-  return <div>Landing Page</div>
+  return characters.map((elm) => <div key={elm.id}>{elm.name}</div>)
 }
