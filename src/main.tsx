@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     element: <LandingPage />,
   },
   {
-    path: "/character",
+    path: "/character/:id",
     element: <div>character</div>,
   },
 ])

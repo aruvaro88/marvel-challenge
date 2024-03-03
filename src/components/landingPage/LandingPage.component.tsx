@@ -15,5 +15,11 @@ export const LandingPage = () => {
     getAllCharacters()
   }, [])
 
-  return characters.map((elm) => <CharacterCard character={elm} />)
+  return (
+    <div className="container">
+      {characters.map((elm) => (
+        <CharacterCard key={elm.id} character={elm} />
+      ))}
+    </div>
+  )
 }
