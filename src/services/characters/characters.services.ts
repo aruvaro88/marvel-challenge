@@ -17,7 +17,7 @@ export const fetchCharacters: () => Promise<Character[]> = async () => {
 
 export const fetchCharactersByName: (name: string) => Promise<Character[]> = async (name) => {
   try {
-    const response = await fetch(API_BASE_URL + Endpoints.getCharacters + `?nameStartsWith=${name}&apikey=${API_PUBLIC_KEY}`)
+    const response = await fetch(API_BASE_URL + Endpoints.getCharacters + `?nameStartsWith=${name}&limit=${LIMIT}&apikey=${API_PUBLIC_KEY}`)
     const data = await response.json()
     return data.data.results
   } catch (error) {

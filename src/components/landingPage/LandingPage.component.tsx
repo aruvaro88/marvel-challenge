@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Character } from "../../models/character.model"
 import { fetchCharacters, fetchCharactersByName } from "../../services/characters/characters.services"
 import { CharacterCard } from "../characterCard/CharacterCard.component"
-import { Input, LandingContainer } from "./LandingPage.styles"
+import { Input, LandingContainer, SearchContainer } from "./LandingPage.styles"
 
 export const LandingPage = () => {
   const [characters, setCharacters] = useState<Character[]>([])
@@ -26,12 +26,14 @@ export const LandingPage = () => {
 
   return (
     <>
-      <LandingContainer>
+      <SearchContainer>
         <Input>
-          <input onChange={(e) => onInputChange(e)} placeholder="Search a character" />
+          {/* <img src={Glass} className="icon" /> */}
+          <input onChange={(e) => onInputChange(e)} placeholder="Search a character" className="input" />
         </Input>
-        {characters && characters.map((elm) => <CharacterCard key={elm.id} character={elm} />)}
-      </LandingContainer>
+        <p>{`${characters.length} Results`}</p>
+      </SearchContainer>
+      <LandingContainer>{characters && characters.map((elm) => <CharacterCard key={elm.id} character={elm} />)}</LandingContainer>
     </>
   )
 }
