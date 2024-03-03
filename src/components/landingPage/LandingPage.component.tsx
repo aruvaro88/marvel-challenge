@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { Character } from "../../models/character.mode"
-import { fetchCharacters } from "../../services/characters/characters.services"
+import { Character } from "../../models/character.model"
+import { fetchCharacters, fetchCharactersByName } from "../../services/characters/characters.services"
 import { CharacterCard } from "../characterCard/CharacterCard.component"
-import "./LandingPage.styles.scss"
+import { Input, LandingContainer } from "./LandingPage.styles"
 
 export const LandingPage = () => {
   const [characters, setCharacters] = useState<Character[]>([])
@@ -11,15 +11,27 @@ export const LandingPage = () => {
     setCharacters(await fetchCharacters())
   }
 
+  const getCharactersByName = async (name: string) => {
+    setCharacters(await fetchCharactersByName(name))
+  }
+
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    e.target.value === "" ? getAllCharacters() : getCharactersByName(e.target.value)
+  }
+
   useEffect(() => {
     getAllCharacters()
   }, [])
 
   return (
-    <div className="container">
-      {characters.map((elm) => (
-        <CharacterCard key={elm.id} character={elm} />
-      ))}
-    </div>
+    <>
+      <LandingContainer>
+        <Input>
+          <input onChange={(e) => onInputChange(e)} placeholder="Search a character" />
+        </Input>
+        {characters && characters.map((elm) => <CharacterCard key={elm.id} character={elm} />)}
+      </LandingContainer>
+    </>
   )
 }

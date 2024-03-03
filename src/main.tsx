@@ -1,10 +1,10 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import { Header } from "./components/header/Header.component.tsx"
-import "./index.scss"
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { DetailPage } from "./components/detailPage/DetailPage.component.tsx"
+import { Header } from "./components/header/Header.component.tsx"
 import { LandingPage } from "./components/landingPage/LandingPage.component.tsx"
+import "./index.scss"
 
 const router = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/character/:id",
-    element: <div>character</div>,
+    element: <DetailPage />,
   },
 ])
 
