@@ -2,15 +2,16 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import EmptyHeartIcon from "../../assets/empty-heart-icon.svg"
 import HeartIcon from "../../assets/heart-icon.svg"
-import { Character } from "../../models/character.model"
-import { fetchCharacterDetails } from "../../services/characters/characters.services"
+import { Character, ComicData } from "../../models/character.model"
+import { fetchCharacterDetails, fetchComicInfo } from "../../services/characters/characters.services"
 import { DetailHeaderContainer, ImageContainer, InfoContainer, MainInfoContainer, SecondaryInfoContainer } from "./DetailPage.styles"
 import "./DetailPage.styles.ts"
 
 export const DetailPage = () => {
   const urlParams = useParams()
   const [character, setCharacter] = useState<Character>()
-  //   const [comic, setComic] = useState<[]>()
+  const comicsArray: ComicData[] = []
+  const [comic, setComic] = useState<ComicData[]>()
 
   const [isFavorite, setIsFavorite] = useState<boolean>(false)
 
@@ -20,14 +21,17 @@ export const DetailPage = () => {
     setCharacter(await fetchCharacterDetails(id))
   }
 
-  //   const getComicInfo = async () => {
-  //     character?.comics.items.map((elm) => {
-  //       console.log(fetchComicInfo(elm.resourceURI))
-  //     })
-  //   }
+  const getComicInfo = async (character: Character) => {
+    character?.comics.items.map(async (elm) => {
+      comicsArray.push(await fetchComicInfo(elm.resourceURI))
+    })
+    setComic(comicsArray)
+  }
 
   useEffect(() => {
     urlParams.id && getCharacterInfo(parseInt(urlParams.id))
+    character && getComicInfo(character)
+    console.log(comic)
   }, [urlParams.id])
 
   //   useEffect(() => {
@@ -53,10 +57,8 @@ export const DetailPage = () => {
             </SecondaryInfoContainer>
           </InfoContainer>
         </DetailHeaderContainer>
-        //   <ComicsContainer>
-        //           {}
-        //   </ComicsContainer>
       )}
+      <div>{comic && comic.map((elm) => <h1 key={elm.id}>{elm.title}</h1>)}</div>
     </>
   )
 }

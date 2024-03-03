@@ -22,7 +22,7 @@ interface Thumbnail {
   path: string
 }
 
-export interface Comics {
+interface Comics {
   available: number
   returned: number
   collectionURI: string
