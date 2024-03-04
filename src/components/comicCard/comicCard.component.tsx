@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { ComicData } from "../../models/comic.model.ts"
 import "./comicCard.styles.ts"
 import { ComicCardContainer, ImageContainer, TitleContainer } from "./comicCard.styles.ts"
@@ -8,10 +7,6 @@ interface ComicCardProps {
 }
 
 export const ComicCard = ({ comic }: ComicCardProps) => {
-  useEffect(() => {
-    console.log(comic)
-  }, [])
-
   return (
     <ComicCardContainer>
       <ImageContainer>

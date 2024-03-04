@@ -1,16 +1,15 @@
-import { useContext } from "react"
-import { FavoritesContext } from "../../context/favoritesContext"
-import { Character } from "../../models/character.model"
-import { Container } from "./NotFound.styles"
+import Groot from "../../assets/groot.png"
+import { Container, ImageContainer } from "./NotFound.styles"
 
 export const NotFound = () => {
-  const favorites: Character[] = useContext(FavoritesContext)
   return (
     <>
       <Container>
-        {favorites.map((elm) => (
-          <h1>{elm.name}</h1>
-        ))}
+        <ImageContainer>
+          <img className="img" src={Groot} />
+        </ImageContainer>
+        <h1>PAGE NOT FOUND</h1>
+        <span>Please, come back to main page</span>
       </Container>
     </>
   )

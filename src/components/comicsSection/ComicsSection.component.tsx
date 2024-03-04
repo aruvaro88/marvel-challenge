@@ -16,7 +16,7 @@ export const ComicSection = ({ comics }: ComicsSectionProps) => {
   return (
     <ComicsSectionContainer>
       <TitleContainer>
-        <span className="title">hola</span>
+        <span className="title">Comics</span>
       </TitleContainer>
       <ComicsContainer>{comics && comics.map((elm) => <ComicCard key={elm.id} comic={elm} />)}</ComicsContainer>
     </ComicsSectionContainer>

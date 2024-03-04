@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import EmptyHeartIcon from "../../assets/empty-heart-icon.svg"
 import HeartIcon from "../../assets/heart-icon.svg"
 import { Character } from "../../models/character.model"
@@ -39,9 +39,6 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
         <div onClick={() => toggleFavorite()}>
           {isFavorite ? <img src={HeartIcon} className="fav-icon" /> : <img src={EmptyHeartIcon} className="fav-icon" />}
         </div>
-        <Link to="/favorites">
-          <button>hola</button>
-        </Link>
       </InfoContainer>
     </CardContainer>
   )

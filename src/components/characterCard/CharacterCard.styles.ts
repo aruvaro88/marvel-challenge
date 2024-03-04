@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { devices } from "../.."
 
 export const CardContainer = styled.div`
   width: 192px;
@@ -7,6 +8,10 @@ export const CardContainer = styled.div`
   margin: 8px;
   :hover {
     background-color: red;
+  }
+  @media ${devices.lg} {
+    width: 165px;
+    height: 220px;
   }
 `
 
@@ -31,6 +36,7 @@ export const InfoContainer = styled.div`
 
   .name-text {
     color: white;
+    font-size: 14px;
   }
 
   .fav-icon {

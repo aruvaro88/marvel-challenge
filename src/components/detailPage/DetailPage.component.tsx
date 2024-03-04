@@ -59,13 +59,13 @@ export const DetailPage = () => {
             </ImageContainer>
             <InfoContainer>
               <MainInfoContainer>
-                <p className="name-text">{character.name}</p>
+                <span className="name-text">{character.name}</span>
                 <div onClick={() => toggleFavorite()}>
                   {isFavorite ? <img src={HeartIcon} className="fav-icon" /> : <img src={EmptyHeartIcon} className="fav-icon" />}
                 </div>
               </MainInfoContainer>
               <SecondaryInfoContainer>
-                <p className="name-text">{character.description}</p>
+                <span className="name-text">{character.description}</span>
               </SecondaryInfoContainer>
             </InfoContainer>
           </DetailHeaderContainer>
