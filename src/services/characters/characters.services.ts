@@ -1,5 +1,5 @@
 import { Endpoints } from "../../endpoints/endpoints"
-import { Character, ComicData } from "../../models/character.model"
+import { Character } from "../../models/character.model"
 
 const API_BASE_URL = "http://gateway.marvel.com/"
 const API_PUBLIC_KEY = "433360b1ec5781819e23e50d07d7a637"
@@ -28,16 +28,6 @@ export const fetchCharactersByName: (name: string) => Promise<Character[]> = asy
 export const fetchCharacterDetails: (id: number) => Promise<Character> = async (id) => {
   try {
     const response = await fetch(API_BASE_URL + Endpoints.getCharacterDetail.replace(":id", id.toString()) + `?apikey=${API_PUBLIC_KEY}`)
-    const data = await response.json()
-    return data.data.results[0]
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-export const fetchComicInfo: (url: string) => Promise<ComicData> = async (url) => {
-  try {
-    const response = await fetch(url + `?apikey=${API_PUBLIC_KEY}`)
     const data = await response.json()
     return data.data.results[0]
   } catch (error) {

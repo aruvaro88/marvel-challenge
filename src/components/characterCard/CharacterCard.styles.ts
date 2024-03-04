@@ -5,6 +5,9 @@ export const CardContainer = styled.div`
   height: 248px;
   background-color: black;
   margin: 8px;
+  :hover {
+    background-color: red;
+  }
 `
 
 export const ImageContainer = styled.div`
@@ -21,10 +24,10 @@ export const InfoContainer = styled.div`
   height: 25%;
   padding-left: 16px;
   padding-right: 16px;
-  border-top: 3px solid red;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-top: 3px solid red;
 
   .name-text {
     color: white;
