@@ -8,9 +8,6 @@ export const useFavorites = () => {
   const isFavoriteCharacter = (character: Character) => !!favorites.find((elm) => elm.id === character.id)
 
   const addToFavorite = (character: Character) => {
-    console.log("añade favorito")
-    console.log(favorites)
-    console.log(setFavorites)
     setFavorites([...favorites, character])
   }
 
@@ -19,9 +16,6 @@ export const useFavorites = () => {
   }
 
   const toggleFavorite = (character: Character) => {
-    console.log("toggle")
-    console.log(favorites)
-    console.log(isFavoriteCharacter(character))
     isFavoriteCharacter(character) ? removeFromFavorite(character) : addToFavorite(character)
   }
 

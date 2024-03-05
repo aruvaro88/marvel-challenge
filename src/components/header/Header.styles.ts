@@ -7,6 +7,9 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 16px 48px 16px 48px;
+  .link {
+    text-decoration: none;
+  }
 `
 
 export const ImageContainer = styled.div``

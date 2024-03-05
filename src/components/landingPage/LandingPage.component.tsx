@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { useLocation } from "react-router-dom"
+import { FavoritesContext } from "../../context/favoritesContext"
 import { Character } from "../../models/character.model"
 import { fetchCharacters, fetchCharactersByName } from "../../services/characters/characters.services"
 import { CharacterCard } from "../characterCard/CharacterCard.component"
@@ -6,6 +8,10 @@ import { CardsContainer, CharactersContainer, Input, SearchContainer } from "./L
 
 export const LandingPage = () => {
   const [characters, setCharacters] = useState<Character[]>([])
+  const location = useLocation()
+
+  const isFavoritePage = location.pathname.includes("/favorites")
+  const { favorites } = useContext(FavoritesContext)
 
   const getAllCharacters = async () => {
     setCharacters(await fetchCharacters())
@@ -28,13 +34,16 @@ export const LandingPage = () => {
     <>
       <SearchContainer>
         <Input>
-          {/* <img src={Glass} className="icon" /> */}
           <input onChange={(e) => onInputChange(e)} placeholder="Search a character" className="input" />
         </Input>
-        <p>{`${characters.length} Results`}</p>
+        <p>{`${isFavoritePage ? favorites.length : characters.length} Results`}</p>
       </SearchContainer>
       <CharactersContainer>
-        <CardsContainer>{characters && characters.map((elm) => <CharacterCard key={elm.id} character={elm} />)}</CardsContainer>
+        {isFavoritePage ? (
+          <CardsContainer>{favorites && favorites.map((elm) => <CharacterCard key={elm.id} character={elm} />)}</CardsContainer>
+        ) : (
+          <CardsContainer>{characters && characters.map((elm) => <CharacterCard key={elm.id} character={elm} />)}</CardsContainer>
+        )}
       </CharactersContainer>
     </>
   )

@@ -2,7 +2,6 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { DetailPage } from "./components/detailPage/DetailPage.component.tsx"
-import { Favorites } from "./components/favorites/Favorites.component.tsx"
 import { HeaderWrapper } from "./components/headerWrapper/HeaderWrapper.component.tsx"
 import { LandingPage } from "./components/landingPage/LandingPage.component.tsx"
 import { NotFound } from "./components/notFound/NotFound.component.tsx"
@@ -24,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/favorites",
-        element: <Favorites />,
+        element: <LandingPage />,
       },
     ],
   },
