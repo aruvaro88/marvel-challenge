@@ -1,4 +1,7 @@
 import { createContext } from "react"
-import { Character } from "../models/character.model"
+import { CharacterContext } from "../models/character.model"
 
-export const FavoritesContext = createContext<Character[]>([])
+export const FavoritesContext = createContext<CharacterContext>({
+  favorites: [],
+  setFavorites: () => {},
+})

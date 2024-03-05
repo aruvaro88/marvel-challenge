@@ -1,7 +1,7 @@
-import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import EmptyHeartIcon from "../../assets/empty-heart-icon.svg"
 import HeartIcon from "../../assets/heart-icon.svg"
+import { useFavorites } from "../../hooks/useFavorites.ts"
 import { Character } from "../../models/character.model"
 import { CardContainer, ImageContainer, InfoContainer } from "./CharacterCard.styles"
 import "./CharacterCard.styles.ts"
@@ -12,18 +12,7 @@ interface CharacterCardProps {
 
 export const CharacterCard = ({ character }: CharacterCardProps) => {
   const navigate = useNavigate()
-  const [isFavorite, setIsFavorite] = useState<boolean>(false)
-  const [favorites, setFavorites] = useState<Character[]>([])
-
-  const toggleFavorite = () => {
-    if (isFavorite === true) {
-      console.log("quitar de favoritos")
-      setIsFavorite(!isFavorite)
-    } else {
-      setFavorites([...favorites, character])
-      setIsFavorite(!isFavorite)
-    }
-  }
+  const { isFavoriteCharacter, toggleFavorite } = useFavorites()
 
   const goToDetail = () => {
     navigate(`/character/${character.id}`)
@@ -35,9 +24,9 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
         <img className="img" src={`${character.thumbnail.path}.${character.thumbnail.extension}`} />
       </ImageContainer>
       <InfoContainer>
-        <p className="name-text">{character.name}</p>
-        <div onClick={() => toggleFavorite()}>
-          {isFavorite ? <img src={HeartIcon} className="fav-icon" /> : <img src={EmptyHeartIcon} className="fav-icon" />}
+        <span className="name-text">{character.name}</span>
+        <div onClick={() => toggleFavorite(character)}>
+          {isFavoriteCharacter(character) ? <img src={HeartIcon} className="fav-icon" /> : <img src={EmptyHeartIcon} className="fav-icon" />}
         </div>
       </InfoContainer>
     </CardContainer>

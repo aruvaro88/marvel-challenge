@@ -1,34 +1,29 @@
 import styled from "styled-components"
 import { devices } from "../.."
 
-export const LandingContainer = styled.div`
-  padding-left: 178px;
-  padding-right: 178px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+export const CharactersContainer = styled.div`
+  padding: 0px 178px 0px 178px;
   @media ${devices.lg} {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 0px 32px 0px 32px;
   }
   @media ${devices.sm} {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 0px 16px 0px 16px;
   }
+`
+
+export const CardsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `
 
 export const SearchContainer = styled.div`
   margin: 36px 0px 36px 0px;
-  padding-left: 178px;
-  padding-right: 178px;
+  padding: 0px 178px 0px 178px;
   @media ${devices.lg} {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 0px 32px 0px 32px;
   }
   @media ${devices.sm} {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 0px 16px 0px 16px;
   }
 `
 

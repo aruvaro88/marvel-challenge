@@ -6,6 +6,8 @@ export const CardContainer = styled.div`
   height: 248px;
   background-color: black;
   margin: 8px;
+  display: flex;
+  flex-direction: column;
   :hover {
     background-color: red;
   }
@@ -19,21 +21,21 @@ export const ImageContainer = styled.div`
   width: 100%;
   height: 75%;
   .img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1
     object-fit: cover;
   }
 `
 
 export const InfoContainer = styled.div`
-  height: 25%;
   padding-left: 16px;
   padding-right: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-top: 3px solid red;
-
+  flex-grow: 1;
   .name-text {
     color: white;
     font-size: 14px;

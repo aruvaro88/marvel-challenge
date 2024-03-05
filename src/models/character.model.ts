@@ -70,3 +70,8 @@ interface SeriesItems {
   resourceURI: string
   name: string
 }
+
+export interface CharacterContext {
+  favorites: Character[]
+  setFavorites: (character: Character[]) => void
+}

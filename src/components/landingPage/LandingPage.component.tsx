@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Character } from "../../models/character.model"
 import { fetchCharacters, fetchCharactersByName } from "../../services/characters/characters.services"
 import { CharacterCard } from "../characterCard/CharacterCard.component"
-import { Input, LandingContainer, SearchContainer } from "./LandingPage.styles"
+import { CardsContainer, CharactersContainer, Input, SearchContainer } from "./LandingPage.styles"
 
 export const LandingPage = () => {
   const [characters, setCharacters] = useState<Character[]>([])
@@ -33,7 +33,9 @@ export const LandingPage = () => {
         </Input>
         <p>{`${characters.length} Results`}</p>
       </SearchContainer>
-      <LandingContainer>{characters && characters.map((elm) => <CharacterCard key={elm.id} character={elm} />)}</LandingContainer>
+      <CharactersContainer>
+        <CardsContainer>{characters && characters.map((elm) => <CharacterCard key={elm.id} character={elm} />)}</CardsContainer>
+      </CharactersContainer>
     </>
   )
 }

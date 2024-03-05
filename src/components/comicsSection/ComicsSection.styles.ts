@@ -4,7 +4,9 @@ import { devices } from "../.."
 export const ComicsSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  justify-content: center;
+  padding: 0px 350px 0px 350px;
+  margin-top: 32px;
   @media ${devices.lg} {
     width: 96%;
     padding: 16px;
@@ -16,6 +18,7 @@ export const ComicsSectionContainer = styled.div`
 `
 
 export const TitleContainer = styled.div`
+  margin-bottom: 24px;
   .title {
     font-size: 32px;
     color: black;
@@ -26,7 +29,5 @@ export const TitleContainer = styled.div`
 
 export const ComicsContainer = styled.div`
   display: flex;
-  align-items: center;
   overflow: auto;
-  white-space: nowrap;
 `

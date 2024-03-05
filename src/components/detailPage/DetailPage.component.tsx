@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import EmptyHeartIcon from "../../assets/empty-heart-icon.svg"
 import HeartIcon from "../../assets/heart-icon.svg"
+import { useFavorites } from "../../hooks/useFavorites.ts"
 import { Character } from "../../models/character.model"
 import { ComicData } from "../../models/comic.model.ts"
 import { fetchCharacterDetails } from "../../services/characters/characters.services"
@@ -16,17 +17,7 @@ export const DetailPage = () => {
 
   const [comic, setComic] = useState<ComicData[]>()
 
-  const [isFavorite, setIsFavorite] = useState<boolean>(false)
-
-  const toggleFavorite = () => {
-    if (isFavorite === true) {
-      console.log("quita de favoritos")
-      setIsFavorite(!isFavorite)
-    } else {
-      console.log("añade a favoritos")
-      setIsFavorite(!isFavorite)
-    }
-  }
+  const { isFavoriteCharacter, toggleFavorite } = useFavorites()
 
   const getCharacterInfo = async (id: number) => {
     const data = await fetchCharacterDetails(id)
@@ -60,12 +51,16 @@ export const DetailPage = () => {
             <InfoContainer>
               <MainInfoContainer>
                 <span className="name-text">{character.name}</span>
-                <div onClick={() => toggleFavorite()}>
-                  {isFavorite ? <img src={HeartIcon} className="fav-icon" /> : <img src={EmptyHeartIcon} className="fav-icon" />}
+                <div onClick={() => toggleFavorite(character)}>
+                  {isFavoriteCharacter(character) ? <img src={HeartIcon} className="fav-icon" /> : <img src={EmptyHeartIcon} className="fav-icon" />}
                 </div>
               </MainInfoContainer>
               <SecondaryInfoContainer>
-                <span className="name-text">{character.description}</span>
+                {character.description === "" ? (
+                  <span className="name-text">No description available for this character.</span>
+                ) : (
+                  <span className="name-text">{character.description}</span>
+                )}
               </SecondaryInfoContainer>
             </InfoContainer>
           </DetailHeaderContainer>

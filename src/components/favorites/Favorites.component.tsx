@@ -1,10 +1,9 @@
 import { useContext } from "react"
 import { FavoritesContext } from "../../context/favoritesContext"
-import { Character } from "../../models/character.model"
 import { Container } from "./Favorites.styles"
 
 export const Favorites = () => {
-  const favorites: Character[] = useContext(FavoritesContext)
+  const { favorites } = useContext(FavoritesContext)
   return (
     <>
       <Container>
