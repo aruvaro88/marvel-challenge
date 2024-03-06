@@ -8,7 +8,7 @@ export const fetchCharacters: () => Promise<Character[]> = async () => {
     const response = await fetch(
       import.meta.env.VITE_API_BASE_URL +
         Endpoints.getCharacters +
-        `?limit=${LIMIT}&ts=1&apikey=${import.meta.env.VITE_API_PUBLIC_KEY}&hash=ef67fa9d648fc0413dcdc4f5633deb60`
+        `?limit=${LIMIT}&ts=1&apikey=${import.meta.env.VITE_API_PUBLIC_KEY}&hash=${import.meta.env.VITE_API_HASH}`
     )
     const data = await response.json()
     return data.data.results
@@ -22,7 +22,7 @@ export const fetchCharactersByName: (name: string) => Promise<Character[]> = asy
     const response = await fetch(
       import.meta.env.VITE_API_BASE_URL +
         Endpoints.getCharacters +
-        `?nameStartsWith=${name}&limit=${LIMIT}&apikey=${import.meta.env.VITE_API_PUBLIC_KEY}`
+        `?nameStartsWith=${name}&limit=${LIMIT}&ts=1&apikey=${import.meta.env.VITE_API_PUBLIC_KEY}&hash=${import.meta.env.VITE_API_HASH}`
     )
     const data = await response.json()
     return data.data.results
@@ -36,7 +36,7 @@ export const fetchCharacterDetails: (id: number) => Promise<Character> = async (
     const response = await fetch(
       import.meta.env.VITE_API_BASE_URL +
         Endpoints.getCharacterDetail.replace(":id", id.toString()) +
-        `?apikey=${import.meta.env.VITE_API_PUBLIC_KEY}`
+        `?ts=1&apikey=${import.meta.env.VITE_API_PUBLIC_KEY}&hash=${import.meta.env.VITE_API_HASH}`
     )
     const data = await response.json()
     return data.data.results[0]
