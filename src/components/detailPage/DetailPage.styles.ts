@@ -59,6 +59,10 @@ export const MainInfoContainer = styled.div`
     font-size: 32px;
     color: ${colors.textColor};
   }
+  .fav-icon {
+    width: 20px;
+    height: auto;
+  }
 `
 
 export const SecondaryInfoContainer = styled.div`

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import EmptyHeartIcon from "../../assets/empty-heart-icon.svg"
-import HeartIcon from "../../assets/heart-icon.svg"
+import EmptyHeartIcon from "../../assets/empty-heart-icon.svg?react"
+import HeartIcon from "../../assets/heart-icon.svg?react"
 import { useFavorites } from "../../hooks/useFavorites.ts"
 import { Character } from "../../models/character.model"
 import { ComicData } from "../../models/comic.model.ts"
@@ -57,7 +57,7 @@ export const DetailPage = () => {
               <MainInfoContainer>
                 <span className="name-text">{character.name}</span>
                 <div onClick={() => toggleFavorite(character)}>
-                  {isFavoriteCharacter(character) ? <img src={HeartIcon} className="fav-icon" /> : <img src={EmptyHeartIcon} className="fav-icon" />}
+                  {isFavoriteCharacter(character) ? <HeartIcon className="fav-icon full" /> : <EmptyHeartIcon className="fav-icon empty" />}
                 </div>
               </MainInfoContainer>
               <SecondaryInfoContainer>
