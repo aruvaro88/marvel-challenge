@@ -12,7 +12,12 @@ export const HeaderContainer = styled.div`
   }
 `
 
-export const ImageContainer = styled.div``
+export const ImageContainer = styled.div`
+  .heart-icon > svg {
+    width: 32px;
+    height: auto;
+  }
+`
 
 export const FavoritesContainer = styled.div`
   display: flex;
@@ -20,7 +25,8 @@ export const FavoritesContainer = styled.div`
   align-items: center;
 
   .fav-text {
-    margin-left: 8px;
+    margin-left: 12px;
     color: white;
+    font-size: 24px;
   }
 `

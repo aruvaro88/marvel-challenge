@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom"
-import EmptyHeartIcon from "../../assets/empty-heart-icon.svg"
-import HeartIcon from "../../assets/heart-icon.svg"
 import { useFavorites } from "../../hooks/useFavorites.ts"
 import { Character } from "../../models/character.model"
+import { EmptyHeartIcon } from "../icons/EmptyHeartIcon.tsx"
+import { HeartIcon } from "../icons/HeartIcon.tsx"
 import { CardContainer, ImageContainer, InfoContainer } from "./CharacterCard.styles"
 import "./CharacterCard.styles.ts"
 
@@ -26,7 +26,7 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
       <InfoContainer>
         <span className="name-text">{character.name}</span>
         <div onClick={() => toggleFavorite(character)}>
-          {isFavoriteCharacter(character) ? <img src={HeartIcon} className="fav-icon" /> : <img src={EmptyHeartIcon} className="fav-icon" />}
+          {isFavoriteCharacter(character) ? <HeartIcon className="fav-icon full" /> : <EmptyHeartIcon className="fav-icon empty" />}
         </div>
       </InfoContainer>
     </CardContainer>
