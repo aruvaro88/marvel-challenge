@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom"
+import EmptyHeartIcon from "../../assets/empty-heart-icon.svg?react"
+import HeartIcon from "../../assets/heart-icon.svg?react"
 import { useFavorites } from "../../hooks/useFavorites.ts"
 import { Character } from "../../models/character.model"
-import { EmptyHeartIcon } from "../icons/EmptyHeartIcon.tsx"
-import { HeartIcon } from "../icons/HeartIcon.tsx"
 import { CardContainer, ImageContainer, InfoContainer } from "./CharacterCard.styles"
 import "./CharacterCard.styles.ts"
 

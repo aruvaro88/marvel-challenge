@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
 `
 
 export const ImageContainer = styled.div`
-  .heart-icon > svg {
+  .heart-icon {
     width: 32px;
     height: auto;
   }

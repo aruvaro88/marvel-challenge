@@ -1,8 +1,8 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
+import HeartIcon from "../../assets/heart-icon.svg?react"
 import MarvelLogo from "../../assets/marvel-logo.svg"
 import { FavoritesContext } from "../../context/favoritesContext.ts"
-import { HeartIcon } from "../icons/HeartIcon.tsx"
 import { FavoritesContainer, HeaderContainer, ImageContainer } from "./Header.styles.ts"
 
 export const Header = () => {

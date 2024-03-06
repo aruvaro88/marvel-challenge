@@ -10,7 +10,7 @@ export const CardContainer = styled.div`
   flex-direction: column;
   :hover {
     background-color: red;
-    .full > svg > path {
+    .full > path {
       fill: white;
     }
   }
@@ -43,7 +43,7 @@ export const InfoContainer = styled.div`
     color: white;
     font-size: 14px;
   }
-  .fav-icon > svg {
+  .fav-icon {
     width: 20px;
     height: auto;
   }
