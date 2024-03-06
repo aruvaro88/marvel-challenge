@@ -50,6 +50,9 @@ Ademas, en dicha vista hay una barra buscador donde el usuario puede introducir 
 
 En la vista de detalle de personaje también existe la posibilidad de añadir el personaje a favoritos. En esta vista se muestran los comics en los que aparece el personaje. El usuario podrá hacer scroll horizontal para poder visualizarlos.
 
+La web se encuentra desplegada en Netlify y puedes acceder a ella a traves del siguiente link:
+[https://marvel-challenge-aruvaro.netlify.app](https://marvel-challenge-aruvaro.netlify.app)
+
 ## Estructura
 
 El proyecto tiene la siguiente estructura de datos:
@@ -58,17 +61,13 @@ El proyecto tiene la siguiente estructura de datos:
 ├── package-lock.json
 ├── package.json
 ├── public
-│   └── vite.svg
 ├── src
-│   ├── App.css
-│   ├── App.tsx
 │   ├── assets
 │   │   ├── empty-heart-icon.svg
 │   │   ├── glass.svg
 │   │   ├── groot.png
 │   │   ├── heart-icon.svg
-│   │   ├── marvel-logo.svg
-│   │   └── react.svg
+│   │   └── marvel-logo.svg
 │   ├── components
 │   │   ├── characterCard
 │   │   │   ├── CharacterCard.component.tsx
@@ -84,20 +83,15 @@ El proyecto tiene la siguiente estructura de datos:
 │   │   │   └── DetailPage.styles.ts
 │   │   ├── header
 │   │   │   ├── Header.component.tsx
-│   │   │   ├── Header.styles.ts
-│   │   │   └── Header.test.tsx
+│   │   │   └── Header.styles.ts
 │   │   ├── headerWrapper
 │   │   │   └── HeaderWrapper.component.tsx
-│   │   ├── icons
-│   │   │   ├── EmptyHeartIcon.tsx
-│   │   │   └── HeartIcon.tsx
 │   │   ├── landingPage
 │   │   │   ├── LandingPage.component.tsx
 │   │   │   └── LandingPage.styles.ts
 │   │   └── notFound
 │   │       ├── NotFound.component.tsx
-│   │       ├── NotFound.styles.ts
-│   │       └── NotFound.test.ts
+│   │       └── NotFound.styles.ts
 │   ├── context
 │   │   └── favoritesContext.ts
 │   ├── endpoints
