@@ -11,7 +11,7 @@ export const HeaderWrapper = () => {
     <div>
       <FavoritesContext.Provider value={{ favorites, setFavorites }}>
         <Header />
-        <Outlet />
+        {<Outlet />}
       </FavoritesContext.Provider>
     </div>
   )

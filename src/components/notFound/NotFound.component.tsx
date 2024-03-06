@@ -1,9 +1,11 @@
 import Groot from "../../assets/groot.png"
+import { Header } from "../header/Header.component"
 import { Container, ImageContainer } from "./NotFound.styles"
 
 export const NotFound = () => {
   return (
     <>
+      <Header />
       <Container>
         <ImageContainer>
           <img className="img" src={Groot} />

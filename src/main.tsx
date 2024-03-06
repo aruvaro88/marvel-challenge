@@ -11,11 +11,12 @@ import { GlobalStyle } from "./index.ts"
 const router = createBrowserRouter([
   {
     element: <HeaderWrapper />,
+    errorElement: <NotFound />,
+
     children: [
       {
         path: "/",
         element: <LandingPage />,
-        errorElement: <NotFound />,
       },
       {
         path: "/character/:id",
