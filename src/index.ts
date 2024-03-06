@@ -28,3 +28,9 @@ export const devices = {
   lg: `(max-width: ${breakpoints.lg})`,
   xl: `(max-width: ${breakpoints.xl})`,
 }
+
+export const colors = {
+  main: "#F0131E",
+  background: "#000000",
+  textColor: "#FFFFFF",
+}

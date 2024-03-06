@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { colors } from "../.."
 
 export const HeaderContainer = styled.div`
   background-color: black;
@@ -26,7 +27,7 @@ export const FavoritesContainer = styled.div`
 
   .fav-text {
     margin-left: 12px;
-    color: white;
+    color: ${colors.textColor};
     font-size: 24px;
   }
 `

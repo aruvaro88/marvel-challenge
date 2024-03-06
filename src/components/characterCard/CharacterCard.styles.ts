@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { devices } from "../.."
+import { colors, devices } from "../.."
 
 export const CardContainer = styled.div`
   width: 192px;
@@ -9,9 +9,9 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   :hover {
-    background-color: red;
+    background-color: ${colors.main};
     .full > path {
-      fill: white;
+      fill: ${colors.textColor};
     }
   }
   @media ${devices.lg} {
@@ -37,10 +37,10 @@ export const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 3px solid red;
+  border-top: 3px solid ${colors.main};
   flex-grow: 1;
   .name-text {
-    color: white;
+    color: ${colors.textColor};
     font-size: 14px;
   }
   .fav-icon {

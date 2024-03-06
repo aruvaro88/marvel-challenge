@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { devices } from "../.."
+import { colors, devices } from "../.."
 
 export const DetailHeaderContainer = styled.div`
   height: 320px;
@@ -57,13 +57,13 @@ export const MainInfoContainer = styled.div`
   margin-bottom: 24px;
   .name-text {
     font-size: 32px;
-    color: white;
+    color: ${colors.textColor};
   }
 `
 
 export const SecondaryInfoContainer = styled.div`
   .name-text {
-    color: white;
+    color: ${colors.textColor};
     font-size: 16px;
   }
 `
