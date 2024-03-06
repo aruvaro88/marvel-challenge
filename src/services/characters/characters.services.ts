@@ -6,7 +6,9 @@ const LIMIT = 50
 export const fetchCharacters: () => Promise<Character[]> = async () => {
   try {
     const response = await fetch(
-      import.meta.env.VITE_API_BASE_URL + Endpoints.getCharacters + `?limit=${LIMIT}&apikey=${import.meta.env.VITE_API_PUBLIC_KEY}`
+      import.meta.env.VITE_API_BASE_URL +
+        Endpoints.getCharacters +
+        `?limit=${LIMIT}&ts=1&apikey=${import.meta.env.VITE_API_PUBLIC_KEY}&hash=ef67fa9d648fc0413dcdc4f5633deb60`
     )
     const data = await response.json()
     return data.data.results
