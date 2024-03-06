@@ -24,9 +24,14 @@ export const DetailPage = () => {
     setCharacter(data)
   }
 
+  const getComicIdFromUrl = (url: string) => {
+    return url.split("/").pop() || ""
+  }
+
   const getComicInfo = async (character: Character) => {
     const comicsPromiseArray = character?.comics.items.map((elm) => {
-      return fetchComicInfo(elm.resourceURI)
+      const comicId = getComicIdFromUrl(elm.resourceURI)
+      return fetchComicInfo(comicId)
     })
     const comicsArray = await Promise.all(comicsPromiseArray)
     setComic(comicsArray)
